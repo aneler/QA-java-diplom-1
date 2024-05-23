@@ -2,6 +2,7 @@ package praktikum;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 /**
  * Класс с методами по работе с базой данных.
@@ -31,6 +32,16 @@ public class Database {
 
     public List<Ingredient> availableIngredients() {
         return ingredients;
+    }
+
+    public Bun getRandomBun(){
+        Random random = new Random();
+        return  buns.get(random.nextInt(buns.size()));
+    }
+
+    public Ingredient getRandomIngredient(){
+        Random random = new Random();
+        return ingredients.get(random.nextInt(ingredients.size()));
     }
 
 }
