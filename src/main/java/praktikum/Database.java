@@ -34,14 +34,4 @@ public class Database {
         return ingredients;
     }
 
-    public Bun getRandomBun(){
-        Random random = new Random();
-        return  buns.get(random.nextInt(buns.size()));
-    }
-
-    public Ingredient getRandomIngredient(){
-        Random random = new Random();
-        return ingredients.get(random.nextInt(ingredients.size()));
-    }
-
 }
