@@ -2,6 +2,7 @@ package praktikum;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 /**
  * Класс с методами по работе с базой данных.
