@@ -26,23 +26,38 @@ public class BurgerTest {
 
 
     @Test
-    public void setBunsTest(){
+    public void setBunNameTest(){
         Burger burger = new Burger();
         burger.setBuns(bunMock);
         when(bunMock.getName()).thenReturn(data.availableBuns().get(1).getName());
-        when(bunMock.getPrice()).thenReturn(data.availableBuns().get(1).getPrice());
         assertEquals(data.availableBuns().get(1).getName(), burger.bun.getName());
+    }
+    @Test
+    public void setBunPriceTest(){
+        Burger burger = new Burger();
+        burger.setBuns(bunMock);
+        when(bunMock.getPrice()).thenReturn(data.availableBuns().get(1).getPrice());
         assertEquals(data.availableBuns().get(1).getPrice(), burger.bun.getPrice(), 0.001);
     }
     @Test
-    public void addIngredientTest(){
+    public void addIngredientTypeTest(){
         Burger burger = new Burger();
         burger.addIngredient(firstIngredientMock);
         when(firstIngredientMock.getType()).thenReturn(data.availableIngredients().get(2).getType());
-        when(firstIngredientMock.getName()).thenReturn(data.availableIngredients().get(2).getName());
-        when(firstIngredientMock.getPrice()).thenReturn(data.availableIngredients().get(2).getPrice());
         assertEquals(data.availableIngredients().get(2).getType(), burger.ingredients.get(0).getType());
+    }
+    @Test
+    public void addIngredientNameTest(){
+        Burger burger = new Burger();
+        burger.addIngredient(firstIngredientMock);
+        when(firstIngredientMock.getName()).thenReturn(data.availableIngredients().get(2).getName());
         assertEquals(data.availableIngredients().get(2).getName(), burger.ingredients.get(0).getName());
+    }
+    @Test
+    public void addIngredientPriceTest(){
+        Burger burger = new Burger();
+        burger.addIngredient(firstIngredientMock);
+        when(firstIngredientMock.getPrice()).thenReturn(data.availableIngredients().get(2).getPrice());
         assertEquals(data.availableIngredients().get(2).getPrice(), burger.ingredients.get(0).getPrice(), 0.001);
     }
     @Test
@@ -57,17 +72,32 @@ public class BurgerTest {
 
     }
     @Test
-    public void moveIngredientTest(){
+    public void moveIngredientSizeTest(){
+        Burger burger = new Burger();
+        burger.addIngredient(firstIngredientMock);
+        burger.addIngredient(secondIngredientMock);
+
+        assertEquals(2, burger.ingredients.size());
+    }
+    @Test
+    public void moveIngredientCheckFirstNameTest(){
         Burger burger = new Burger();
         burger.addIngredient(firstIngredientMock);
         burger.addIngredient(secondIngredientMock);
 
         String firstIngredientName = burger.ingredients.get(0).getName();
-        String secondIngredientName = burger.ingredients.get(1).getName();
-
-        assertEquals(2, burger.ingredients.size());
         burger.moveIngredient(0, 1);
         assertEquals(firstIngredientName, burger.ingredients.get(1).getName());
+
+    }
+    @Test
+    public void moveIngredientCheckSecondNameTest(){
+        Burger burger = new Burger();
+        burger.addIngredient(firstIngredientMock);
+        burger.addIngredient(secondIngredientMock);
+
+        String secondIngredientName = burger.ingredients.get(1).getName();
+        burger.moveIngredient(0, 1);
         assertEquals(secondIngredientName, burger.ingredients.get(0).getName());
     }
     @Test

@@ -55,6 +55,4 @@ public class IngredientTest {
         Ingredient ingredient = new Ingredient(type, name, price);
         Assert.assertEquals(price, ingredient.getPrice(), 0.001);
     }
-
-
 }
